@@ -1,11 +1,30 @@
 public class Main {
   public static void main(String[] args) {
-    for (int i = 8; i > 1; i--) {
-      System.out.println(String.format("%.2f", calculateInterest(10000, i)));
+    int primes = 0;
+
+    for(int i = 872; i < 234234; i++) {
+      if (isPrime(i)) {
+        System.out.println(i);
+        primes++;
+      }
+
+      if (primes > 2) {
+        break;
+      }
     }
   }
 
-  public static double calculateInterest(double amount, double interestRate) {
-    return (amount * (interestRate / 100));
+  public static boolean isPrime(int number) {
+
+    if (number == 1) {
+      return false;
+    }
+
+    for(int i = 2; i < number / 2; i++) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+    return true;
   }
 }
